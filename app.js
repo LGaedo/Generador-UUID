@@ -14,7 +14,17 @@ app.use(compression());
 const serverHttp = http.createServer(app);
 serverHttp.listen(process.env.HTTP_PORT, process.env.IP);
 
-// Prueba
-app.get('/', function(req, res) {
-    res.send("Hola mundo")
+// Contenido estático
+app.use(express.static('./public'));
+
+// API
+app.get('/api/get-uuid', function(req, res) {
+    res.send(uuidv4())
 });
+
+// 404
+app.get('*', function(req, res) {
+    res.status(404).send('Error 404 - Recurso no encontrado')
+});
+
+
