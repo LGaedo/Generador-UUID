@@ -10,7 +10,7 @@ var cors = require('cors');
 const app = express();
 app.use(helmet()); // Ayuda a proteger aplicaciones Express
 app.use(compression());
-app.use(cors());
+app.use(cors()); // Para habilitar CORS 
 
 // Servidor HTTP
 const serverHttp = http.createServer(app);
