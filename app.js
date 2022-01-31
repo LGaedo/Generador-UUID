@@ -3,7 +3,7 @@ const express = require('express');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const helmet = require('helmet');
+app.use(helmet({contentSecurityPolicy: false}));  // Ayuda a proteger aplicaciones Express
 var compression = require('compression');
 require('dotenv').config();
 const {v4: uuidv4} = require('uuid');
